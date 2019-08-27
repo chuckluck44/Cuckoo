@@ -23,4 +23,11 @@ protocol GenericProtocol {
     func callSomeV(theV: V) -> Int
     func compute(classy: C, value: V) -> C
     func noReturn()
+
+    //func update(with: C) -> Self
+}
+
+protocol SelfRequirementProtocol {
+    func update() -> Self
+    func optionalUpdate() -> Self?
 }

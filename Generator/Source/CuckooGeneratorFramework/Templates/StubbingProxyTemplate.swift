@@ -10,10 +10,12 @@ import Foundation
 extension Templates {
     static let stubbingProxy = """
 {{ container.accessibility }} struct __StubbingProxy_{{ container.name }}: Cuckoo.StubbingProxy {
+    var cuckoo_mock_env: ContainerEnvironment<SelfType>
     private let cuckoo_manager: Cuckoo.MockManager
 
-    {{ container.accessibility }} init(manager: Cuckoo.MockManager) {
+    {{ container.accessibility }} init(manager: Cuckoo.MockManager, environment: Any) {
         self.cuckoo_manager = manager
+        self.cuckoo_mock_env = environment as! ContainerEnvironment<SelfType>
     }
     {% for property in container.properties %}
     {% for attribute in property.attributes %}
@@ -24,9 +26,9 @@ extension Templates {
     }
     {% endfor %}
     {% for method in container.methods %}
-    func {{method.name}}{{method.self|matchableGenericNames}}({{method.parameters|matchableParameterSignature}}) -> {{method.stubFunction}}<({{method.inputTypes|genericSafe}}){%if method.returnType != "Void" %}, {{method.returnType|genericSafe}}{%endif%}>{{method.self|matchableGenericWhereClause}} {
+    func {{method.name}}{{method.self|matchableGenericNames}}({{method.parameters|matchableParameterSignature}}) -> {{method.stubFunction}}<{% if method.hasSelfRequirements %}SelfType, {% endif %}({{method.inputTypes|genericSafe}}){%if method.returnType != "Void" %}, {{method.returnType|genericSafe|selfSafe}}{%endif%}>{{method.self|matchableGenericWhereClause}} {
         {{method.parameters|parameterMatchers}}
-        return .init(stub: cuckoo_manager.createStub(for: {{ container.mockName }}.self, method: "{{method.fullyQualifiedName}}", parameterMatchers: matchers))
+        return .init({% if method.hasSelfRequirements %}environment: cuckoo_mock_env, {% endif %}stub: cuckoo_manager.createStub(for: {{ container.mockName }}.self, method: "{{method.fullyQualifiedName}}", parameterMatchers: matchers))
     }
     {% endfor %}
 }

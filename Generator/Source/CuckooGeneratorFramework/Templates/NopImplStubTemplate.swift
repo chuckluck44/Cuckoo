@@ -7,7 +7,8 @@
 
 extension Templates {
     static let noImplStub = """
-{{container.accessibility}} class {{ container.name }}Stub{{ container.genericParameters }}: {{ container.name }}{% if container.isImplementation %}{{ container.genericArguments }}{% endif %} {
+{{container.accessibility}}{% if container.hasSelfRequirements %} final{% endif %} class {{ container.name }}Stub{{ container.genericParameters }}: {{ container.name }}{% if container.isImplementation %}{{ container.genericArguments }}{% endif %} {
+    {% if container.hasSelfRequirements %}{{ container.accessibility }} typealias SelfType = {{ container.name }}Stub{{ container.genericParameters }}{% endif %}
     {% for property in container.properties %}
     {% for attribute in property.attributes %}
     {{ attribute.text }}
@@ -31,8 +32,8 @@ extension Templates {
     {% endfor %}
 
     {% for method in container.methods %}
-    {{ method.accessibility }}{% if container.@type == "ClassDeclaration" and method.isOverriding %} override{% endif %} func {{ method.name }}{{ method.genericParameters }}({{ method.parameterSignature }}) {{ method.returnSignature }} {{ method.whereClause }} {
-        return DefaultValueRegistry.defaultValue(for: ({{method.returnType|genericSafe}}).self)
+    {{ method.accessibility }}{% if container.@type == "ClassDeclaration" and method.isOverriding %} override{% endif %} func {{ method.name }}{{ method.genericParameters }}({{ method.parameterSignature }}) {{ method.returnSignature|selfSafe }} {{ method.whereClause }} {
+        return DefaultValueRegistry.defaultValue(for: ({{method.returnType|genericSafe|selfSafe}}).self)
     }
     {% endfor %}
 }

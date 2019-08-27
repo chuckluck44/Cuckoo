@@ -14,12 +14,23 @@ public protocol ContainerToken: Token, HasAccessibility {
     var initializers: [Initializer] { get }
     var children: [Token] { get }
     var implementation: Bool { get }
+    var hasSelfRequirements: Bool { get }
     var inheritedTypes: [InheritanceDeclaration] { get }
     var attributes: [Attribute] { get }
     var genericParameters: [GenericParameter] { get }
 }
 
 extension ContainerToken {
+
+    public var hasSelfRequirements: Bool {
+        for token in children {
+            if let method = token as? Method, method.returnSignature.returnType.isSelf {
+                return true
+            }
+        }
+        return false
+    }
+
     public func serialize() -> [String : Any] {
         let properties = children.compactMap { $0 as? InstanceVariable }
             .filter { $0.accessibility.isAccessible }
@@ -47,6 +58,7 @@ extension ContainerToken {
             "methods": methods,
             "initializers": implementation ? [] : initializers,
             "isImplementation": implementation,
+            "hasSelfRequirements": hasSelfRequirements,
             "mockName": "Mock\(name)",
             "inheritedTypes": inheritedTypes,
             "attributes": attributes.filter { $0.isSupported },

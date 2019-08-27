@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		155AA0F82303822E000AFF17 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA0F72303822E000AFF17 /* GeneratedMocks.swift */; };
+		155AA0F92303822E000AFF17 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA0F72303822E000AFF17 /* GeneratedMocks.swift */; };
+		155AA0FD2304CF95000AFF17 /* StubFunctionThenReturningSelfTrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA0FA2304CF4F000AFF17 /* StubFunctionThenReturningSelfTrait.swift */; };
+		155AA0FE2304CF96000AFF17 /* StubFunctionThenReturningSelfTrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA0FA2304CF4F000AFF17 /* StubFunctionThenReturningSelfTrait.swift */; };
+		155AA1002304D079000AFF17 /* StubFunctionThenThrowingSelfTrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA0FF2304D078000AFF17 /* StubFunctionThenThrowingSelfTrait.swift */; };
+		155AA1012304D079000AFF17 /* StubFunctionThenThrowingSelfTrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA0FF2304D078000AFF17 /* StubFunctionThenThrowingSelfTrait.swift */; };
+		155AA1032304D0EB000AFF17 /* StubFunctionThenReturnSelfTrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA1022304D0EB000AFF17 /* StubFunctionThenReturnSelfTrait.swift */; };
+		155AA1042304D0EB000AFF17 /* StubFunctionThenReturnSelfTrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA1022304D0EB000AFF17 /* StubFunctionThenReturnSelfTrait.swift */; };
+		155AA1062304D217000AFF17 /* StubSelfReturnFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA1052304D217000AFF17 /* StubSelfReturnFunction.swift */; };
+		155AA1072304D217000AFF17 /* StubSelfReturnFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA1052304D217000AFF17 /* StubSelfReturnFunction.swift */; };
+		155AA1092304D234000AFF17 /* StubSelfThrowingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA1082304D234000AFF17 /* StubSelfThrowingFunction.swift */; };
+		155AA10A2304D234000AFF17 /* StubSelfThrowingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155AA1082304D234000AFF17 /* StubSelfThrowingFunction.swift */; };
 		1851201020EF78BD000101DC /* CreateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851200F20EF78BD000101DC /* CreateMock.swift */; };
 		1851201120EF78BD000101DC /* CreateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851200F20EF78BD000101DC /* CreateMock.swift */; };
 		1851201320EF9A4C000101DC /* ThreadLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1851201220EF9A4C000101DC /* ThreadLocal.swift */; };
@@ -135,8 +147,6 @@
 		18E2A3351FBB31280058FEC5 /* ArgumentCaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2A25B1FBB1C330058FEC5 /* ArgumentCaptor.swift */; };
 		18E2A3361FBB31290058FEC5 /* __DoNotUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2A25A1FBB1C330058FEC5 /* __DoNotUse.swift */; };
 		18E2A3371FBB31290058FEC5 /* ArgumentCaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2A25B1FBB1C330058FEC5 /* ArgumentCaptor.swift */; };
-		18E2A33D1FBB3D7F0058FEC5 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2A33B1FBB3D6E0058FEC5 /* GeneratedMocks.swift */; };
-		18E2A33E1FBB3D7F0058FEC5 /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E2A33B1FBB3D6E0058FEC5 /* GeneratedMocks.swift */; };
 		58C540B5C5EF0037F77C90B5 /* ExcludedTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C54D12B64AF3169FC8A1A3 /* ExcludedTestClass.swift */; };
 		58C54612D0DB47A284F29AD5 /* ExcludedStubTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C54B2B810BC9284205CB16 /* ExcludedStubTest.swift */; };
 		58C54C0D4A65BCDC47704C0B /* ExcludedTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C54D12B64AF3169FC8A1A3 /* ExcludedTestClass.swift */; };
@@ -270,6 +280,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		155AA0F72303822E000AFF17 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
+		155AA0FA2304CF4F000AFF17 /* StubFunctionThenReturningSelfTrait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubFunctionThenReturningSelfTrait.swift; sourceTree = "<group>"; };
+		155AA0FF2304D078000AFF17 /* StubFunctionThenThrowingSelfTrait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubFunctionThenThrowingSelfTrait.swift; sourceTree = "<group>"; };
+		155AA1022304D0EB000AFF17 /* StubFunctionThenReturnSelfTrait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubFunctionThenReturnSelfTrait.swift; sourceTree = "<group>"; };
+		155AA1052304D217000AFF17 /* StubSelfReturnFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubSelfReturnFunction.swift; sourceTree = "<group>"; };
+		155AA1082304D234000AFF17 /* StubSelfThrowingFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubSelfThrowingFunction.swift; sourceTree = "<group>"; };
 		1851200F20EF78BD000101DC /* CreateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMock.swift; sourceTree = "<group>"; };
 		1851201220EF9A4C000101DC /* ThreadLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadLocal.swift; sourceTree = "<group>"; };
 		1851201520EF9A68000101DC /* MockManager+preconfigured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MockManager+preconfigured.swift"; sourceTree = "<group>"; };
@@ -351,7 +367,6 @@
 		18E2A32E1FBB24390058FEC5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		18E2A32F1FBB24410058FEC5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		18E2A3391FBB36830058FEC5 /* GenerateMocksForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateMocksForTests.swift; sourceTree = SOURCE_ROOT; };
-		18E2A33B1FBB3D6E0058FEC5 /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
 		18E2A3401FBB3FDD0058FEC5 /* CuckooGenerator.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CuckooGenerator.xcodeproj; path = Generator/CuckooGenerator.xcodeproj; sourceTree = "<group>"; };
 		18E2A3971FBB43E60058FEC5 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		58C54B2B810BC9284205CB16 /* ExcludedStubTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExcludedStubTest.swift; sourceTree = "<group>"; };
@@ -484,6 +499,8 @@
 				18E2A24B1FBB1C330058FEC5 /* StubNoReturnFunction.swift */,
 				18E2A24C1FBB1C330058FEC5 /* StubNoReturnThrowingFunction.swift */,
 				18E2A24D1FBB1C330058FEC5 /* StubThrowingFunction.swift */,
+				155AA1052304D217000AFF17 /* StubSelfReturnFunction.swift */,
+				155AA1082304D234000AFF17 /* StubSelfThrowingFunction.swift */,
 				18E2A24E1FBB1C330058FEC5 /* Trait */,
 			);
 			path = StubFunction;
@@ -499,6 +516,9 @@
 				18E2A2531FBB1C330058FEC5 /* StubFunctionThenThrowTrait.swift */,
 				18E2A2541FBB1C330058FEC5 /* StubFunctionThenTrait.swift */,
 				68E9EAE5224B9F34000DBD29 /* StubFunctionThenThrowingTrait.swift */,
+				155AA1022304D0EB000AFF17 /* StubFunctionThenReturnSelfTrait.swift */,
+				155AA0FA2304CF4F000AFF17 /* StubFunctionThenReturningSelfTrait.swift */,
+				155AA0FF2304D078000AFF17 /* StubFunctionThenThrowingSelfTrait.swift */,
 			);
 			path = Trait;
 			sourceTree = "<group>";
@@ -559,7 +579,7 @@
 		18E2A2641FBB1C330058FEC5 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				18E2A33B1FBB3D6E0058FEC5 /* GeneratedMocks.swift */,
+				155AA0F72303822E000AFF17 /* GeneratedMocks.swift */,
 				18E2A2651FBB1C330058FEC5 /* .gitkeep */,
 			);
 			path = Generated;
@@ -960,7 +980,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "GENERATE=1\n\nif [ $GENERATE -ne 0 ]; then\nenv -i PATH=$PATH PROJECT_DIR=$PROJECT_DIR USE_RUN=$USE_RUN swift \"$PROJECT_DIR/GenerateMocksForTests.swift\"\nfi\n";
+			shellScript = "GENERATE=1\n\nif [ $GENERATE -ne 0 ]; then\n env -i PATH=$PATH PROJECT_DIR=$PROJECT_DIR USE_RUN=$USE_RUN swift \"$PROJECT_DIR/GenerateMocksForTests.swift\"\nfi\n";
 		};
 		18E2A33F1FBB3FA80058FEC5 /* Generate Mocks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -992,19 +1012,24 @@
 				18E2A3151FBB234F0058FEC5 /* StubAction.swift in Sources */,
 				18E2A3331FBB31250058FEC5 /* VerifyReadOnlyProperty.swift in Sources */,
 				18E2A3371FBB31290058FEC5 /* ArgumentCaptor.swift in Sources */,
+				155AA0FE2304CF96000AFF17 /* StubFunctionThenReturningSelfTrait.swift in Sources */,
 				18E2A3031FBB23480058FEC5 /* BaseStubFunctionTrait.swift in Sources */,
+				155AA1002304D079000AFF17 /* StubFunctionThenThrowingSelfTrait.swift in Sources */,
 				1851201020EF78BD000101DC /* CreateMock.swift in Sources */,
 				1851201920EF9B02000101DC /* Mocked.swift in Sources */,
 				18E2A3241FBB235A0058FEC5 /* CallMatcher.swift in Sources */,
 				18E2A3161FBB234F0058FEC5 /* StubCall.swift in Sources */,
 				18E2A3051FBB23480058FEC5 /* StubFunctionThenDoNothingTrait.swift in Sources */,
 				18E2A2FA1FBB23420058FEC5 /* ToBeStubbedProperty.swift in Sources */,
+				155AA1032304D0EB000AFF17 /* StubFunctionThenReturnSelfTrait.swift in Sources */,
 				68E9EAE6224B9F34000DBD29 /* StubFunctionThenThrowingTrait.swift in Sources */,
 				18E2A31B1FBB23550058FEC5 /* Mock.swift in Sources */,
 				18E2A3071FBB23480058FEC5 /* StubFunctionThenThrowTrait.swift in Sources */,
+				155AA1062304D217000AFF17 /* StubSelfReturnFunction.swift in Sources */,
 				18E2A3101FBB234B0058FEC5 /* StubThrowingFunction.swift in Sources */,
 				18E2A30E1FBB234B0058FEC5 /* StubNoReturnFunction.swift in Sources */,
 				18E2A32A1FBB235E0058FEC5 /* DefaultValueRegistry.swift in Sources */,
+				155AA1092304D234000AFF17 /* StubSelfThrowingFunction.swift in Sources */,
 				18E2A2FC1FBB23420058FEC5 /* Utils.swift in Sources */,
 				18E2A31E1FBB23550058FEC5 /* MockManager.swift in Sources */,
 				18E2A3041FBB23480058FEC5 /* StubFunctionThenCallRealImplementationTrait.swift in Sources */,
@@ -1036,19 +1061,24 @@
 				18E2A3121FBB234E0058FEC5 /* StubAction.swift in Sources */,
 				18E2A3311FBB31240058FEC5 /* VerifyReadOnlyProperty.swift in Sources */,
 				18E2A3351FBB31280058FEC5 /* ArgumentCaptor.swift in Sources */,
+				155AA0FD2304CF95000AFF17 /* StubFunctionThenReturningSelfTrait.swift in Sources */,
 				18E2A2FD1FBB23470058FEC5 /* BaseStubFunctionTrait.swift in Sources */,
+				155AA1012304D079000AFF17 /* StubFunctionThenThrowingSelfTrait.swift in Sources */,
 				1851201120EF78BD000101DC /* CreateMock.swift in Sources */,
 				1851201A20EF9B02000101DC /* Mocked.swift in Sources */,
 				18E2A31F1FBB23590058FEC5 /* CallMatcher.swift in Sources */,
 				18E2A3131FBB234E0058FEC5 /* StubCall.swift in Sources */,
 				18E2A2FF1FBB23470058FEC5 /* StubFunctionThenDoNothingTrait.swift in Sources */,
 				18E2A2F71FBB23410058FEC5 /* ToBeStubbedProperty.swift in Sources */,
+				155AA1042304D0EB000AFF17 /* StubFunctionThenReturnSelfTrait.swift in Sources */,
 				68E9EAFF224BA4B4000DBD29 /* StubFunctionThenThrowingTrait.swift in Sources */,
 				18E2A3171FBB23540058FEC5 /* Mock.swift in Sources */,
 				18E2A3011FBB23470058FEC5 /* StubFunctionThenThrowTrait.swift in Sources */,
+				155AA1072304D217000AFF17 /* StubSelfReturnFunction.swift in Sources */,
 				18E2A30C1FBB234B0058FEC5 /* StubThrowingFunction.swift in Sources */,
 				18E2A30A1FBB234B0058FEC5 /* StubNoReturnFunction.swift in Sources */,
 				18E2A32C1FBB235F0058FEC5 /* DefaultValueRegistry.swift in Sources */,
+				155AA10A2304D234000AFF17 /* StubSelfThrowingFunction.swift in Sources */,
 				18E2A2F91FBB23410058FEC5 /* Utils.swift in Sources */,
 				18E2A31A1FBB23540058FEC5 /* MockManager.swift in Sources */,
 				18E2A2FE1FBB23470058FEC5 /* StubFunctionThenCallRealImplementationTrait.swift in Sources */,
@@ -1073,13 +1103,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				18E2A2E11FBB22C40058FEC5 /* TestedProtocol.swift in Sources */,
+				155AA0F92303822E000AFF17 /* GeneratedMocks.swift in Sources */,
 				18E2A2EC1FBB22CB0058FEC5 /* StubbingTest.swift in Sources */,
 				18E2A2F61FBB22ED0058FEC5 /* VerificationTest.swift in Sources */,
 				18E2A2E41FBB22C40058FEC5 /* UnicodeTestProtocol.swift in Sources */,
 				18E2A2F21FBB22CB0058FEC5 /* TestUtils.swift in Sources */,
 				18E2A2DD1FBB22C40058FEC5 /* ClassForStubTesting.swift in Sources */,
 				18E2A2F01FBB22CB0058FEC5 /* StubThrowingFunctionTest.swift in Sources */,
-				18E2A33E1FBB3D7F0058FEC5 /* GeneratedMocks.swift in Sources */,
 				18E2A2D01FBB22BC0058FEC5 /* CallMatcherTest.swift in Sources */,
 				18E2A2DF1FBB22C40058FEC5 /* ObjcProtocol.swift in Sources */,
 				682D2894228B183E0078DDCD /* TestError.swift in Sources */,
@@ -1118,13 +1148,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				18E2A2D91FBB22C30058FEC5 /* TestedProtocol.swift in Sources */,
+				155AA0F82303822E000AFF17 /* GeneratedMocks.swift in Sources */,
 				18E2A2E51FBB22CA0058FEC5 /* StubbingTest.swift in Sources */,
 				18E2A2F41FBB22EC0058FEC5 /* VerificationTest.swift in Sources */,
 				18E2A2DC1FBB22C30058FEC5 /* UnicodeTestProtocol.swift in Sources */,
 				18E2A2EB1FBB22CA0058FEC5 /* TestUtils.swift in Sources */,
 				18E2A2D51FBB22C30058FEC5 /* ClassForStubTesting.swift in Sources */,
 				18E2A2E91FBB22CA0058FEC5 /* StubThrowingFunctionTest.swift in Sources */,
-				18E2A33D1FBB3D7F0058FEC5 /* GeneratedMocks.swift in Sources */,
 				18E2A2CA1FBB22BC0058FEC5 /* CallMatcherTest.swift in Sources */,
 				18E2A2D71FBB22C30058FEC5 /* ObjcProtocol.swift in Sources */,
 				682D2893228B183E0078DDCD /* TestError.swift in Sources */,

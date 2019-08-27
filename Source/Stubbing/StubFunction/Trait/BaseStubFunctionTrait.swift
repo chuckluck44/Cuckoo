@@ -12,3 +12,14 @@ public protocol BaseStubFunctionTrait {
     
     var stub: ConcreteStub<InputType, OutputType> { get }
 }
+
+public struct ContainerEnvironment<SELF: Mock> {
+    public unowned var _self: SELF!
+}
+
+public protocol SelfRequirementStubFunctionTrait: BaseStubFunctionTrait {
+    associatedtype SelfType: Mock
+
+    var environment: ContainerEnvironment<SelfType> { get }
+}
+

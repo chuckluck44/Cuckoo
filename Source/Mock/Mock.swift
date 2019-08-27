@@ -14,7 +14,7 @@ public protocol HasSuperclass {
     static var cuckoo_hasSuperclass: Bool { get }
 }
 
-public protocol Mock: HasMockManager, HasSuperclass {
+public protocol Mock: class, HasMockManager, HasSuperclass {
     associatedtype MocksType
     associatedtype Stubbing: StubbingProxy
     associatedtype Verification: VerificationProxy
@@ -28,7 +28,7 @@ public protocol Mock: HasMockManager, HasSuperclass {
 
 public extension Mock {
     func getStubbingProxy() -> Stubbing {
-        return Stubbing(manager: cuckoo_manager)
+        return Stubbing(manager: cuckoo_manager, environment: ContainerEnvironment<Self>(_self: self))
     }
     
     func getVerificationProxy(_ callMatcher: CallMatcher, sourceLocation: SourceLocation) -> Verification {

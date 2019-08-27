@@ -194,6 +194,10 @@ public class MockManager {
         }
     }
 
+    func crashOnDefaultCallWithSelfRequirements<OUT>() -> OUT {
+        failAndCrash("You cannot provide a default implementation for a function that has Self requirements.")
+    }
+
     private func failAndCrash(_ message: String, file: StaticString = #file, line: UInt = #line) -> Never  {
         MockManager.fail((message, (file, line)))
 
