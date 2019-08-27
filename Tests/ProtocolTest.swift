@@ -186,3 +186,40 @@ class ProtocolTest: XCTestCase {
         case unknown
     }
 }
+
+class SelfRequirementProtocolTest: XCTestCase {
+
+    private var mock: MockSelfRequirementProtocol!
+
+    override func setUp() {
+        super.setUp()
+
+        mock = MockSelfRequirementProtocol()
+    }
+
+    func testSelfFunction() {
+        stub(mock) { mock in
+            when(mock.update()).thenReturnSelf()
+        }
+
+        XCTAssertEqual(mock.update(), mock)
+        verify(mock).update()
+    }
+
+    func testOptionalSelfFunction() {
+        stub(mock) { stub in
+            when(stub.optionalUpdate()).thenReturningSelf{ env, _ in
+                return env._self
+            }
+        }
+
+        XCTAssertEqual(mock.optionalUpdate(), mock)
+        verify(mock).optionalUpdate()
+    }
+}
+
+extension MockSelfRequirementProtocol: Equatable {
+    static func == (lhs: MockSelfRequirementProtocol, rhs: MockSelfRequirementProtocol) -> Bool {
+        return lhs === rhs
+    }
+}

@@ -5,6 +5,8 @@
 //  Created by Matyáš Kříž on 13/03/2019.
 //
 
+import Foundation
+
 public enum WrappableType {
     indirect case optional(WrappableType)
     indirect case implicitlyUnwrappedOptional(WrappableType)
@@ -30,6 +32,17 @@ public enum WrappableType {
             return "\(wrapped.sugarizedExplicitOnly)?"
         case .attributed(let wrapped, let attributes):
             return "\(attributes.joined(separator: " ")) \(wrapped.sugarizedExplicitOnly)"
+        case .type(let type):
+            return type
+        }
+    }
+
+    public var sugarizedBaseTypeOnly: String {
+        switch self {
+        case .optional(let wrapped), .implicitlyUnwrappedOptional(let wrapped):
+            return wrapped.sugarizedBaseTypeOnly
+        case .attributed(let wrapped, _):
+            return wrapped.sugarizedBaseTypeOnly
         case .type(let type):
             return type
         }
@@ -90,6 +103,10 @@ public enum WrappableType {
         case .type:
             return false
         }
+    }
+
+    public var isSelf: Bool {
+        return sugarizedBaseTypeOnly == "Self"
     }
 
     public init(parsing value: String) {

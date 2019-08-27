@@ -16,6 +16,7 @@ public protocol Method: Token, HasAccessibility {
     var isOverriding: Bool { get }
     var hasClosureParams: Bool { get }
     var hasOptionalParams: Bool { get }
+    var hasSelfRequirements: Bool { get }
     var attributes: [Attribute] { get }
     var genericParameters: [GenericParameter] { get }
 }
@@ -63,6 +64,10 @@ public extension Method {
         return parameters.contains { $0.isOptional }
     }
 
+    var hasSelfRequirements: Bool {
+        return returnSignature.returnType.isSelf
+    }
+
     public func isEqual(to other: Token) -> Bool {
         guard let other = other as? Method else { return false }
         return self.name == other.name && self.parameters == other.parameters && self.returnType == other.returnType
@@ -81,13 +86,17 @@ public extension Method {
         let stubFunctionPrefix = isOverriding ? "Class" : "Protocol"
         let stubFunction: String
         if isThrowing {
-            if returnType.sugarized == "Void" {
+            if returnType.isSelf {
+                stubFunction = "Cuckoo.\(stubFunctionPrefix)StubSelfThrowingFunction"
+            } else if returnType.sugarized == "Void" {
                 stubFunction = "Cuckoo.\(stubFunctionPrefix)StubNoReturnThrowingFunction"
             } else {
                 stubFunction = "Cuckoo.\(stubFunctionPrefix)StubThrowingFunction"
             }
         } else {
-            if returnType.sugarized == "Void" {
+            if returnType.isSelf {
+                stubFunction = "Cuckoo.\(stubFunctionPrefix)StubSelfReturnFunction"
+            } else if returnType.sugarized == "Void" {
                 stubFunction = "Cuckoo.\(stubFunctionPrefix)StubNoReturnFunction"
             } else {
                 stubFunction = "Cuckoo.\(stubFunctionPrefix)StubFunction"
@@ -130,6 +139,7 @@ public extension Method {
             "isOptional": isOptional,
             "hasClosureParams": hasClosureParams,
             "hasOptionalParams": hasOptionalParams,
+            "hasSelfRequirements": hasSelfRequirements,
             "attributes": attributes.filter { $0.isSupported },
             "genericParameters": isGeneric ? "<\(genericParametersString)>" : "",
         ]

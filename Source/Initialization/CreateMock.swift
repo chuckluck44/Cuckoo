@@ -19,6 +19,10 @@ public func createMock<MOCK: Mock>(_ mockType: MOCK.Type, configuration: (MockBu
 
     let builder = MockBuilder(manager: manager)
 
-    let stubbing = MOCK.Stubbing(manager: manager)
-    return configuration(builder, stubbing)
+    var environment = ContainerEnvironment<MOCK>()
+    let stubbing = MOCK.Stubbing(manager: manager, environment: environment)
+    let mock = configuration(builder, stubbing)
+    environment._self = mock
+
+    return mock
 }

@@ -45,3 +45,9 @@ class GenericClass<T: CustomStringConvertible, U: Codable & CustomStringConverti
 
     func noReturn() {}
 }
+
+//class SelfRequirementClass {
+//    func update(with: Int) -> Self {
+//        return self
+//    }
+//}

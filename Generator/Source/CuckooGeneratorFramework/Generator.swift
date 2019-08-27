@@ -27,6 +27,11 @@ public struct Generator {
             return self.genericSafeType(from: string)
         }
 
+        ext.registerFilter("selfSafe") { (value: Any?) in
+            guard let string = value as? String else { return value }
+            return self.selfSafeType(from: string)
+        }
+
         ext.registerFilter("matchableGenericNames") { (value: Any?) in
             guard let method = value as? Method else { return value }
             return self.matchableGenericTypes(from: method)
@@ -106,6 +111,10 @@ public struct Generator {
 
     private func genericSafeType(from type: String) -> String {
         return type.replacingOccurrences(of: "!", with: "?")
+    }
+
+    private func selfSafeType(from type: String) -> String {
+        return type.replacingOccurrences(of: "Self", with: "SelfType")
     }
 
     private func openNestedClosure(for parameters: [MethodParameter], throwing: Bool? = false) -> String {

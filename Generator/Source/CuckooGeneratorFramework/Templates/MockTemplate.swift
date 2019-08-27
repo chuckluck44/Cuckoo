@@ -15,12 +15,12 @@ extension Templates {
 {% for attribute in container.attributes %}
 {{ attribute.text }}
 {% endfor %}
-{{ container.accessibility }} class {{ container.mockName }}{{ container.genericParameters }}: {{ container.name }}{% if container.isImplementation %}{{ container.genericArguments }}{% endif %}, {% if container.isImplementation %}Cuckoo.ClassMock{% else %}Cuckoo.ProtocolMock{% endif %} {
+{{ container.accessibility }}{% if container.hasSelfRequirements %} final{% endif %} class {{ container.mockName }}{{ container.genericParameters }}: {{ container.name }}{% if container.isImplementation %}{{ container.genericArguments }}{% endif %}, {% if container.isImplementation %}Cuckoo.ClassMock{% else %}Cuckoo.ProtocolMock{% endif %} {
     {% if container.isGeneric and not container.isImplementation %}
     {{ container.accessibility }} typealias MocksType = \(typeErasureClassName){{ container.genericArguments }}
     {% else %}
     {{ container.accessibility }} typealias MocksType = {{ container.name }}{{ container.genericArguments }}
-    {% endif %}
+    {% endif %}typealias SelfType = {{ container.mockName }}{{ container.genericArguments }}
     {{ container.accessibility }} typealias Stubbing = __StubbingProxy_{{ container.name }}
     {{ container.accessibility }} typealias Verification = __VerificationProxy_{{ container.name }}
 
@@ -102,7 +102,7 @@ extension Templates {
     {% for attribute in method.attributes %}
     {{ attribute.text }}
     {% endfor %}
-    {{ method.accessibility }}{% if container.isImplementation and method.isOverriding %} override{% endif %} func {{ method.name }}{{ method.genericParameters }}({{ method.parameterSignature }}) {{ method.returnSignature }} {
+    {{ method.accessibility }}{% if container.isImplementation and method.isOverriding %} override{% endif %} func {{ method.name }}{{ method.genericParameters }}({{ method.parameterSignature }}) {{ method.returnSignature|selfSafe }} {
         {{ method.parameters|openNestedClosure:method.isThrowing }}
     return{% if method.isThrowing %} try{% endif %} cuckoo_manager.call{% if method.isThrowing %}{{ method.throwType|capitalize }}{% endif %}("{{method.fullyQualifiedName}}",
             parameters: ({{method.parameterNames}}),
@@ -113,7 +113,7 @@ extension Templates {
                 {% else %}
                 Cuckoo.MockManager.crashOnProtocolSuperclassCall()
                 {% endif %},
-            defaultCall: __defaultImplStub!.{{method.name}}{%if method.isOptional %}!{%endif%}({{method.call}}))
+            defaultCall: {% if not method.hasSelfRequirements %}__defaultImplStub!.{{method.name}}{%if method.isOptional %}!{%endif%}({{method.call}})){% else %}cuckoo_manager.crashOnDefaultCallWithSelfRequirements()){% endif %}
         {{ method.parameters|closeNestedClosure }}
     }
     {% endfor %}
