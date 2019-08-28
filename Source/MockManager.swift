@@ -160,6 +160,10 @@ public class MockManager {
 
         isDefaultImplementationEnabled = true
     }
+
+    public func crashOnDefaultCallWithSelfRequirements<OUT>() -> OUT {
+        failAndCrash("You cannot provide a default implementation for a function that has Self requirements.")
+    }
     
     func reset() {
         clearStubs()
@@ -192,10 +196,6 @@ public class MockManager {
             let message = "No more interactions wanted but some found:\n"
             MockManager.fail((message + unverifiedCalls, sourceLocation))
         }
-    }
-
-    func crashOnDefaultCallWithSelfRequirements<OUT>() -> OUT {
-        failAndCrash("You cannot provide a default implementation for a function that has Self requirements.")
     }
 
     private func failAndCrash(_ message: String, file: StaticString = #file, line: UInt = #line) -> Never  {
